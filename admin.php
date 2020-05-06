@@ -4,7 +4,25 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <style>
-
+  body{
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/62880f36-b83d-4aba-8bcb-64d54f81b96a/d36b6hi-356fe675-8477-4c1a-902d-100bdd1bc85c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzYyODgwZjM2LWI4M2QtNGFiYS04YmNiLTY0ZDU0ZjgxYjk2YVwvZDM2YjZoaS0zNTZmZTY3NS04NDc3LTRjMWEtOTAyZC0xMDBiZGQxYmM4NWMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.fuFdxlHfqBJnLAT-tNl7ybuNCw4aKCb3w9TpS4TjrEI);
+  }
+  .a{
+    font-family: 'Courier New';
+    border: 1px solid black;
+    background-color:rgba(255, 69, 0, 0.4);
+  }
+  .b{
+    font-family: 'Courier New';
+    border: 1px solid black;
+    background-color:rgba(105, 105, 105, 0.5);
+    color: white;
+  }
+  .delete{
+    font-family: 'Courier New';
+    background-color:rgba(112, 128, 144, 0.55);
+    color: white;
+  }
 </style>
 </head>
 </html>
@@ -38,52 +56,15 @@ md5(md5($_SERVER['PHP_AUTH_PW'])) != md5($passadm)) {
   exit();
 }
 
-print('Вы успешно авторизовались и видите защищенные паролем данные.');
+echo('Удачная авторизация');
 
-$connect = mysqli_connect('localhost', $user, $pass, 'u17361');
-$dbinfo = mysqli_query($connect, 'SELECT * FROM cappapride');
-print("<div class='row'><div class='col-1'>Id</div>
-<div class='col-1'>Name</div>
-<div class='col-1'>Login</div>
-<div class='col-1'>Password</div>
-<div class='col-1'>Email</div>
-<div class='col-1'>Birth Date</div>
-<div class='col-1'>Sex</div>
-<div class='col-1'>Limbs</div>
-<div class='col-1'>Abilities</div>
-<div class='col-2'>Biography</div>
-<div class='col-1'>Consent</div></div>");
-while($row = mysqli_fetch_array($dbinfo)){
-  $id=$row['id'];
-  $name=$row['name'];
-  $login=$row['login'];
-  $password=$row['password'];
-  $email=$row['email'];
-  $birth=$row['birth'];
-  $sex=$row['sex'];
-  $limbs=$row['limbs'];
-  $sverh=$row['sverh'];
-  $bio=$row['bio'];
-  $consent=$row['consent'];
-  print("<div class='row'><div class='col-1'>$id</div>
-  <div class='col-1'>$name</div>
-  <div class='col-1'>$login</div>
-  <div class='col-1'>$password</div>
-  <div class='col-1'>$email</div>
-  <div class='col-1'>$birth</div>
-  <div class='col-1'>$sex</div>
-  <div class='col-1'>$limbs</div>
-  <div class='col-1'>$sverh</div>
-  <div class='col-2'>$bio</div>
-  <div class='col-1'>$consent</div></div>");
-
-print("<form action='' method='POST' style='background-color:#A9A9A9;display: inline-block;'>
-<p style='font-size:150%;'>Добро пожаловать,{$_SERVER['PHP_AUTH_USER']}.</p>
+print("<form action='' method='POST' class = 'col delete'>
+<p>Добро пожаловать, {$_SERVER['PHP_AUTH_USER']}.</p>
 <select name='dead' size='1'>
 <option value=''>...</option>");
 foreach($db->query("SELECT login FROM cappapride ") as $row){
   $user=$row['login'];
-  print("<option value='$text'>$text</option>");
+  print("<option value='$user'>$user</option>");
 }
 print("</select>
 <input type='submit' value='Удолить'>
@@ -100,7 +81,46 @@ if(!empty($_POST['dead'])){
       $die='';
       header('Location:admin.php');
   }
+
+
+$connect = mysqli_connect('localhost', $user, $pass, 'u17361');
+$dbinfo = mysqli_query($connect, 'SELECT * FROM cappapride');
+print("<div class='row'><div class='col-1'>Id</div>
+<div class='col-1 a'>Name</div>
+<div class='col-1 b'>Login</div>
+<div class='col-1 a>Password</div>
+<div class='col-1 b'>Email</div>
+<div class='col-1 a'>Birth Date</div>
+<div class='col-1 b'>Sex</div>
+<div class='col-1 a'>Limbs</div>
+<div class='col-1 b'>Abilities</div>
+<div class='col-2 a'>Biography</div>
+<div class='col-1 b'>Consent</div></div>");
+while($row = mysqli_fetch_array($dbinfo)){
+  $id=$row['id'];
+  $name=$row['name'];
+  $login=$row['login'];
+  $password=$row['password'];
+  $email=$row['email'];
+  $birth=$row['birth'];
+  $sex=$row['sex'];
+  $limbs=$row['limbs'];
+  $sverh=$row['sverh'];
+  $bio=$row['bio'];
+  $consent=$row['consent'];
+  print("<div class='row'><div class='col-1'>$id</div>
+  <div class='col-1 a'>$name</div>
+  <div class='col-1 b'>$login</div>
+  <div class='col-1 a'>$password</div>
+  <div class='col-1 b'>$email</div>
+  <div class='col-1 a'>$birth</div>
+  <div class='col-1 b'>$sex</div>
+  <div class='col-1 a'>$limbs</div>
+  <div class='col-1 b'>$sverh</div>
+  <div class='col-2 a'>$bio</div>
+  <div class='col-1 b'>$consent</div></div>");
 }
+
 // *********
 // Здесь нужно прочитать отправленные ранее пользователями данные и вывести в таблицу.
 // Реализовать просмотр и удаление всех данных.
