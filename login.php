@@ -49,12 +49,14 @@ else {
         $db = new PDO('mysql:host=localhost;dbname=u17361', $user, $pass,
         array(PDO::ATTR_PERSISTENT => true));
         if(!empty($_POST['login']) && !empty($_POST['pass'])){
-            if($_POST['login']=='admin')
+          foreach($db->query("SELECT login FROM odmen") as $row){  
+          if($_POST['login']==$row['login'])
             {
               $_SERVER['PHP_AUTH_USER'] = $_POST['login'];
               $_SERVER['PHP_AUTH_PW'] = $_POST['pass'];
               header('Location: admin.php');
             }
+          }
             foreach($db->query("SELECT login FROM cappapride") as $row) {
               if($_POST['login']==$row['login']){
                 $flag=TRUE;
