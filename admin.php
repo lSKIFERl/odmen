@@ -53,7 +53,7 @@ print("<div class='row'><div class='col-1'>Id</div>
 <div class='col-1'>Abilities</div>
 <div class='col-2'>Biography</div>
 <div class='col-1'>Consent</div></div>");
-while($row = mysql_fetch_array($dbinfo)){
+while($row = mysql_fetch_row($dbinfo)){
   $id=$row['id'];
   $name=$row['name'];
   $login=$row['login'];
