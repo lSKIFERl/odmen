@@ -8,6 +8,7 @@
     background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/62880f36-b83d-4aba-8bcb-64d54f81b96a/d36b6hi-356fe675-8477-4c1a-902d-100bdd1bc85c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzYyODgwZjM2LWI4M2QtNGFiYS04YmNiLTY0ZDU0ZjgxYjk2YVwvZDM2YjZoaS0zNTZmZTY3NS04NDc3LTRjMWEtOTAyZC0xMDBiZGQxYmM4NWMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.fuFdxlHfqBJnLAT-tNl7ybuNCw4aKCb3w9TpS4TjrEI);
     background-position: center center;
     background-attachment:fixed;
+    word-wrap: break-word;
   }
   .a{
     font-family: 'Courier New';
@@ -23,7 +24,7 @@
   }
   .delete{
     font-family: 'Courier New';
-    background-color:rgba(112, 128, 144, 0.55);
+    background-color:rgba(112, 128, 144, 0.35);
     color: white;
   }
 </style>
@@ -59,7 +60,6 @@ md5(md5($_SERVER['PHP_AUTH_PW'])) != md5($passadm)) {
   exit();
 }
 
-echo('Удачная авторизация');
 
 print("<form action='' method='POST' class = 'col delete'>
 <p>Добро пожаловать, {$_SERVER['PHP_AUTH_USER']}.</p>
@@ -88,7 +88,7 @@ if(!empty($_POST['dead'])){
 
 $connect = mysqli_connect('localhost', $useradm, $pass, 'u17361');
 $dbinfo = mysqli_query($connect, 'SELECT * FROM cappapride');
-print("<div class='row'><div class='col-1'>Id</div>
+print("<div class='row'><div class='col-1 b'>Id</div>
 <div class='col-1 a'>Name</div>
 <div class='col-1 b'>Login</div>
 <div class='col-1 a'>Password</div>
@@ -111,7 +111,7 @@ while($row = mysqli_fetch_array($dbinfo)){
   $sverh=$row['sverh'];
   $bio=$row['bio'];
   $consent=$row['consent'];
-  print("<div class='row'><div class='col-1'>$id</div>
+  print("<div class='row'><div class='col-1 b'>$id</div>
   <div class='col-1 a'>$name</div>
   <div class='col-1 b'>$login</div>
   <div class='col-1 a'>$password</div>
