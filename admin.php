@@ -40,7 +40,7 @@ md5(md5($_SERVER['PHP_AUTH_PW'])) != md5($passadm)) {
 
 print('Вы успешно авторизовались и видите защищенные паролем данные.');
 
-$connect = mysqli_connect('localhost', $user, $password, 'u17361')
+$connect = mysqli_connect('localhost', $user, $password, 'u17361');
 $dbinfo = mysqli_query($connect, 'SELECT * FROM cappapride');
 print("<div class='row'><div class='col-1'>Id</div>
 <div class='col-1'>Name</div>
