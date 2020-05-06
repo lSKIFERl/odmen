@@ -37,10 +37,10 @@
 // Пример HTTP-аутентификации.
 // PHP хранит логин и пароль в суперглобальном массиве $_SERVER.
 // Подробнее см. стр. 26 и 99 в учебном пособии Веб-программирование и веб-сервисы.
-$user = 'u17361';
+$useradm = 'u17361';
 $pass = '1020693';
 
-$db = new PDO('mysql:host=localhost;dbname=u17361', $user, $pass,
+$db = new PDO('mysql:host=localhost;dbname=u17361', $useradm, $pass,
 array(PDO::ATTR_PERSISTENT => true));
 foreach($db->query("SELECT login,password FROM odmen") as $row){
   $logadm = $row['login'];
@@ -84,7 +84,7 @@ if(!empty($_POST['dead'])){
   }
 
 
-$connect = mysqli_connect('localhost', $user, $pass, 'u17361');
+$connect = mysqli_connect('localhost', $useradm, $pass, 'u17361');
 $dbinfo = mysqli_query($connect, 'SELECT * FROM cappapride');
 print("<div class='row'><div class='col-1'>Id</div>
 <div class='col-1 a'>Name</div>
