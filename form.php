@@ -55,6 +55,11 @@ caption {
 			</div>
 			<form method="post" action="index.php" name="contract" class="py-3 px-3">
                 <?php
+                unset($_SERVER['PHP_AUTH_USER']);
+                unset($_SERVER['PHP_AUTH_PW']);
+                if(empty($_SESSION['login'])){
+                print('<a href="login.php">Вход</a></br>');
+                }                
                 if (!empty($messages['save'])) {
                     print($messages['save']);
                 }
