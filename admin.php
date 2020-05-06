@@ -6,6 +6,7 @@
 <style>
   body{
     background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/62880f36-b83d-4aba-8bcb-64d54f81b96a/d36b6hi-356fe675-8477-4c1a-902d-100bdd1bc85c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzYyODgwZjM2LWI4M2QtNGFiYS04YmNiLTY0ZDU0ZjgxYjk2YVwvZDM2YjZoaS0zNTZmZTY3NS04NDc3LTRjMWEtOTAyZC0xMDBiZGQxYmM4NWMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.fuFdxlHfqBJnLAT-tNl7ybuNCw4aKCb3w9TpS4TjrEI);
+    background-attachment:fixed;
   }
   .a{
     font-family: 'Courier New';
