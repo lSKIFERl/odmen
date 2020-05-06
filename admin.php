@@ -13,6 +13,7 @@
     font-family: 'Courier New';
     border: 1px solid black;
     background-color:rgba(255, 69, 0, 0.4);
+    color: white;
   }
   .b{
     font-family: 'Courier New';
@@ -90,7 +91,7 @@ $dbinfo = mysqli_query($connect, 'SELECT * FROM cappapride');
 print("<div class='row'><div class='col-1'>Id</div>
 <div class='col-1 a'>Name</div>
 <div class='col-1 b'>Login</div>
-<div class='col-1 a>Password</div>
+<div class='col-1 a'>Password</div>
 <div class='col-1 b'>Email</div>
 <div class='col-1 a'>Birth Date</div>
 <div class='col-1 b'>Sex</div>
