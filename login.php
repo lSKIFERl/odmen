@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 <?php
 }
 // Иначе, если запрос был методом POST, т.е. нужно сделать авторизацию с записью логина в сессию.
-else if( isset( $_SESSION['csrf_token'] ) && $_SESSION['csrf_token'] == @$_POST['csrf_token'] ){
+else if( isset( $_SESSION['csrf_token'] ) && $_SESSION['csrf_token'] == $_POST['csrf_token'] ){
         $flag=FALSE;
         $MESSAGE='';
         $user = 'u17361';
