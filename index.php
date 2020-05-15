@@ -236,9 +236,9 @@ else {
     try {
     $stmt = $db->prepare("UPDATE cappapride SET name=?,email=?,birth=?,sex=?,limbs=?,sverh=?,bio=?,consent=? WHERE login='$log' ");
     
-    $name=$_POST["name"];
-    $email=$_POST["email"];
-    $birth=$_POST["year"];
+    $name=htmlspecialchars($_POST["name"]);
+    $email=htmlspecialchars($_POST["email"]);
+    $birth=htmlspecialchars($_POST["year"]);
     $sex=$_POST["sex"];
     $limbs=$_POST["limbs"];
     if(!empty($_POST['sverh'])){
@@ -253,7 +253,7 @@ else {
         }
     }
     $sverh=$sverh_separated;
-    $bio=$_POST["biography"];
+    $bio=htmlspecialchars($_POST["biography"]);
     $consent=$_POST["consent"];
     
     $stmt->execute(array($name,$email,$birth,$sex,$limbs,$sverh,$bio,$consent,));
@@ -301,15 +301,15 @@ $stmt->bindParam(':limbs', $limb_db);
 $stmt->bindParam(':sverh', $sverh_db);
 $stmt->bindParam(':bio', $bio_db);
 $stmt->bindParam(':consent', $consent_db);
-$name_db=$_POST["name"];
-$login_db=$login;
+$name_db=htmlspecialchars($_POST["name"]);
+$login_db=htmlspecialchars($login);
 $pass_db=md5($password);
-$email_db=$_POST["email"];
-$year_db=$_POST["year"];
+$email_db=htmlspecialchars($_POST["email"]);
+$year_db=htmlspecialchars($_POST["year"]);
 $sex_db=$_POST["sex"];
 $limb_db=$_POST["limbs"];
 $sverh_db=$sverh_separated;
-$bio_db=$_POST["biography"];
+$bio_db=htmlspecialchars($_POST["biography"]);
 $consent_db=$_POST["consent"];
 $stmt->execute();
 }
