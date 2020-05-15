@@ -82,7 +82,7 @@ $sverh_separated='';
     $values['sverh'] = empty($_COOKIE['sverh_value']) ? '' : $_COOKIE['sverh_value'];
     $values['biography'] = empty($_COOKIE['biography_value']) ? '' : $_COOKIE['biography_value'];
     $values['consent'] = empty($_COOKIE['consent_value']) ? '' : $_COOKIE['consent_value'];
-    if (!empty($_COOKIE[session_name()]) && !empty($_SESSION['login'])){ 
+    if (session_start() && !empty($_COOKIE[session_name()]) && !empty($_SESSION['login'])) {
         $user = 'u17361';
         $password = '1020693';
         $log=$_SESSION['login'];
@@ -226,7 +226,7 @@ else {
         setcookie('sex_error', '', 100000);setcookie('consent_error', '', 100000);
     }
 
-    if (!empty($_COOKIE[session_name()]) && !empty($_SESSION['login']))
+    if (session_start() && !empty($_COOKIE[session_name()]) && !empty($_SESSION['login'])) 
     {
     $user = 'u17361';
     $password = '1020693';
@@ -236,9 +236,9 @@ else {
     try {
     $stmt = $db->prepare("UPDATE cappapride SET name=?,email=?,birth=?,sex=?,limbs=?,sverh=?,bio=?,consent=? WHERE login='$log' ");
     
-    $name=htmlspecialchars($_POST["name"]);
-    $email=htmlspecialchars($_POST["email"]);
-    $birth=htmlspecialchars($_POST["year"]);
+    $name=$_POST["name"];
+    $email=$_POST["email"];
+    $birth=$_POST["year"];
     $sex=$_POST["sex"];
     $limbs=$_POST["limbs"];
     if(!empty($_POST['sverh'])){
@@ -253,7 +253,7 @@ else {
         }
     }
     $sverh=$sverh_separated;
-    $bio=htmlspecialchars($_POST["biography"]);
+    $bio=$_POST["biography"];
     $consent=$_POST["consent"];
     
     $stmt->execute(array($name,$email,$birth,$sex,$limbs,$sverh,$bio,$consent,));
@@ -301,15 +301,15 @@ $stmt->bindParam(':limbs', $limb_db);
 $stmt->bindParam(':sverh', $sverh_db);
 $stmt->bindParam(':bio', $bio_db);
 $stmt->bindParam(':consent', $consent_db);
-$name_db=htmlspecialchars($_POST["name"]);
-$login_db=htmlspecialchars($login);
+$name_db=$_POST["name"];
+$login_db=$login;
 $pass_db=md5($password);
-$email_db=htmlspecialchars($_POST["email"]);
-$year_db=htmlspecialchars($_POST["year"]);
+$email_db=$_POST["email"];
+$year_db=$_POST["year"];
 $sex_db=$_POST["sex"];
 $limb_db=$_POST["limbs"];
 $sverh_db=$sverh_separated;
-$bio_db=htmlspecialchars($_POST["biography"]);
+$bio_db=$_POST["biography"];
 $consent_db=$_POST["consent"];
 $stmt->execute();
 }
