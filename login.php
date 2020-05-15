@@ -81,6 +81,9 @@ else if( isset( $_SESSION['csrf_token'] ) && $_SESSION['csrf_token'] == $_POST['
         }
     }else{
       echo($_POST['csrf_token']);
+      ?>
+      </br>
+      <?php
       echo($_SESSION['csrf_token']);
     }       
 ?>
