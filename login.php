@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   <form action="" method="post">
     Логин:<input name="login"/>
     Пароль:<input name="pass" type="password"/>
-    <input name="csrf_token" type="hidden" value="<?php $_SESSION['csrf_token']?>" />
+    Token: <input name="csrf_token" value="<?php print $_SESSION['csrf_token']?>" />
     <input type="submit" value="Войти" />
   </form>
 </div>
