@@ -77,5 +77,8 @@ else if( isset( $_SESSION['csrf_token'] ) && $_SESSION['csrf_token'] == $_POST['
         }else{
           print("Заполните поля для логина и пароля.");
         }
+    }else{
+      echo($_POST['csrf_token']);
+      echo($_SESSION['csrf_token']);
     }       
 ?>
