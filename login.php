@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   <form action="" method="post">
     Логин:<input name="login"/>
     Пароль:<input name="pass" type="password"/>
-    <input name="csrf_token" type="hidden" value="<?php generate_form_token(); ?>" />
+    <input name="csrf_token" type="hidden" value="<?php $_SESSION['csrf_token'] = substr( str_shuffle( 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM' ), 0, 10 ); ?>" />
     <input type="submit" value="Войти" />
   </form>
 </div>
