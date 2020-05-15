@@ -83,7 +83,7 @@ $sverh_separated='';
     $values['biography'] = empty($_COOKIE['biography_value']) ? '' : $_COOKIE['biography_value'];
     $values['consent'] = empty($_COOKIE['consent_value']) ? '' : $_COOKIE['consent_value'];
     if (!empty($_COOKIE[session_name()]) && !empty($_SESSION['login']) && 
-    ( isset( $_SESSION['csrf_token'] ) && $_SESSION['csrf_token'] == $_POST['csrf_token'] )) {
+    ( isset( $_SESSION['csrf_token'] ) && $_SESSION['csrf_token'] == $CSRF )) {
         $user = 'u17361';
         $password = '1020693';
         $log=$_SESSION['login'];
@@ -228,7 +228,7 @@ else {
     }
 
     if (!empty($_COOKIE[session_name()]) && !empty($_SESSION['login']) &&
-    ( isset( $_SESSION['csrf_token'] ) && $_SESSION['csrf_token'] == $_POST['csrf_token'] )) 
+    ( isset( $_SESSION['csrf_token'] ) && $_SESSION['csrf_token'] == $CSRF )) 
     {
     $user = 'u17361';
     $password = '1020693';

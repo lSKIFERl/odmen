@@ -18,7 +18,7 @@ $_SESSION['csrf_token'] = substr( str_shuffle( 'qwertyuiopasdfghjklzxcvbnmQWERTY
 
 }
 function generate_form_token() {
-  return $_SESSION['csrf_token'] = substr( str_shuffle( 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM' ), 0, 10 );
+  return $_SESSION['csrf_token'];
   }
 // Начинаем сессию.
 if (!empty($_POST['exit'])) {
