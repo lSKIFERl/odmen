@@ -38,11 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   <form action="" method="post">
     Логин:<input name="login"/>
     Пароль:<input name="pass" type="password"/>
-    <input name="csrf_token" type="hidden" value="<?php print $_SESSION['csrf_token']?>" />
+    <input name="csrf_token" type="hidden" value="<?php $_SESSION['csrf_token']?>" />
     <input type="submit" value="Войти" />
   </form>
 </div>
 <?php
+$_POST['csrf_token'] = $_SESSION['csrf_token'];
 }
 // Иначе, если запрос был методом POST, т.е. нужно сделать авторизацию с записью логина в сессию.
 else if( isset( $_SESSION['csrf_token'] ) && $_SESSION['csrf_token'] == $_POST['csrf_token'] ){
