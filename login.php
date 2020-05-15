@@ -12,7 +12,7 @@
 // файл login.php должен быть в кодировке UTF-8 без BOM.
 header('Content-Type: text/html; charset=UTF-8');
 session_start();
-if (empty($_COOKIE[session_name()])){
+if (!isset( $_SESSION['csrf_token'] || empty($_COOKIE[session_name()])){
 
 $_SESSION['csrf_token'] = substr( str_shuffle( 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM' ), 0, 10 );
 
