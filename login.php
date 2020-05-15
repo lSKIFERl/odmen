@@ -12,9 +12,10 @@
 // файл login.php должен быть в кодировке UTF-8 без BOM.
 header('Content-Type: text/html; charset=UTF-8');
 session_start();
-function generate_form_token() {
+$_SESSION['csrf_token'] = substr( str_shuffle( 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM' ), 0, 10 );
+/*function generate_form_token() {
   return $_SESSION['csrf_token'] = substr( str_shuffle( 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM' ), 0, 10 );
-  }
+  }*/
 // Начинаем сессию.
 if (!empty($_POST['exit'])) {
   session_destroy();
@@ -37,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   <form action="" method="post">
     Логин:<input name="login"/>
     Пароль:<input name="pass" type="password"/>
-    <input name="csrf_token" type="hidden" value="<?php $_SESSION['csrf_token'] = substr( str_shuffle( 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM' ), 0, 10 ); ?>" />
+    <input name="csrf_token" type="hidden" value="<?php print $_SESSION['csrf_token']?>" />
     <input type="submit" value="Войти" />
   </form>
 </div>
@@ -79,6 +80,6 @@ else if( isset( $_SESSION['csrf_token'] ) && $_SESSION['csrf_token'] == $_POST['
         }
     }else{
       echo($_POST['csrf_token']);
-      ($_SESSION['csrf_token']);
+      echo($_SESSION['csrf_token']);
     }       
 ?>
