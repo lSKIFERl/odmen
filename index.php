@@ -82,9 +82,7 @@ $sverh_separated='';
     $values['sverh'] = empty($_COOKIE['sverh_value']) ? '' : $_COOKIE['sverh_value'];
     $values['biography'] = empty($_COOKIE['biography_value']) ? '' : $_COOKIE['biography_value'];
     $values['consent'] = empty($_COOKIE['consent_value']) ? '' : $_COOKIE['consent_value'];
-    if (!empty($_COOKIE[session_name()]) && !empty($_SESSION['login']) && 
-    ( isset( $_SESSION['csrf_token'] ) && $_SESSION['csrf_token'] == $CSRF )) {
-        $user = 'u17361';
+    if (!empty($_COOKIE[session_name()]) && !empty($_SESSION['login']))        $user = 'u17361';
         $password = '1020693';
         $log=$_SESSION['login'];
         $db = new PDO('mysql:host=localhost;dbname=u17361', $user, $password,
@@ -227,8 +225,7 @@ else {
         setcookie('sex_error', '', 100000);setcookie('consent_error', '', 100000);
     }
 
-    if (!empty($_COOKIE[session_name()]) && !empty($_SESSION['login']) &&
-    ( isset( $_SESSION['csrf_token'] ) && $_SESSION['csrf_token'] == $CSRF )) 
+    if (!empty($_COOKIE[session_name()]) && !empty($_SESSION['login']))
     {
     $user = 'u17361';
     $password = '1020693';

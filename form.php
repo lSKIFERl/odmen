@@ -236,7 +236,6 @@ caption {
 				<input type="submit" value="Отправить">
 			</form>
             <?php   
-                    $CSRF = $_SESSION['csrf_token'];
                     if(!empty($_SESSION['login'])){
                         print('<form method="POST" action="login.php"><input type="submit" name="exit" value="Выход"></form>');
                     }
