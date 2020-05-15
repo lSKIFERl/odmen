@@ -17,9 +17,9 @@ if (empty($_COOKIE[session_name()])){
 $_SESSION['csrf_token'] = substr( str_shuffle( 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM' ), 0, 10 );
 
 }
-/*function generate_form_token() {
-  return $_SESSION['csrf_token'] = substr( str_shuffle( 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM' ), 0, 10 );
-  }*/
+function generate_form_token() {
+  return $_SESSION['csrf_token'];
+}
 // Начинаем сессию.
 if (!empty($_POST['exit'])) {
   session_destroy();
@@ -42,12 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   <form action="" method="post">
     Логин:<input name="login"/>
     Пароль:<input name="pass" type="password"/>
-    Token: <input name="csrf_token" value="<?php print $_SESSION['csrf_token']?>" />
+    Token: <input name="csrf_token" type="hidden" value="'.generate_form_token().'" />
     <input type="submit" value="Войти" />
   </form>
 </div>
 <?php
-$_POST['csrf_token'] = $_SESSION['csrf_token'];
 }
 // Иначе, если запрос был методом POST, т.е. нужно сделать авторизацию с записью логина в сессию.
 else if( isset( $_SESSION['csrf_token'] ) && $_SESSION['csrf_token'] == $_POST['csrf_token'] ){
